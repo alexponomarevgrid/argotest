@@ -13,5 +13,7 @@ spec:
     path: argocd
     repoURL: git@github.com:alexponomarevgrid/argotest.git
     targetRevision: HEAD
+    directory:
+      recurse: true
   syncPolicy:
     automated: {}
