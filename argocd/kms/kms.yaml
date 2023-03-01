@@ -14,7 +14,7 @@ spec:
       parameters:
         - name: readinessProbe.initialDelaySeconds
           value: '120'
-        - mame: args
+        - args:
           - "--kubelet-insecure-tls"
     repoURL: https://kubernetes-sigs.github.io/metrics-server/
     targetRevision: 3.8.3
