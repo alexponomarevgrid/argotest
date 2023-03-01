@@ -13,7 +13,7 @@ spec:
     helm:
       parameters:
         - name: readinessProbe.initialDelaySeconds
-          value: 120
+          value: '120'
     repoURL: https://kubernetes-sigs.github.io/metrics-server/
     targetRevision: 3.8.3
   syncPolicy:
