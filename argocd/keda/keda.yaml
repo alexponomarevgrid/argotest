@@ -23,11 +23,11 @@ spec:
             replicaCount: 1
           podLabels:
             keda:
-              bu: test
-              arrr: yep
+              bus_unit: MCP
+              org: shared_services
             metricsAdapter:
-              bu: test
-              arrr: yep
+              bus_unit: MCP
+              org: shared_services
           tolerations:
             - effect: NoSchedule
               key: vmsize
