@@ -28,6 +28,11 @@ spec:
             metricsAdapter:
               bu: test
               arrr: yep
+          tolerations:
+            - effect: NoSchedule
+              key: vmsize
+              operator: Equal
+              value: small01
   syncPolicy:
     automated:
       prune: true
