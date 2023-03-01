@@ -1,0 +1,35 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keda
+  namespace: argocd
+spec:
+  destination:
+    namespace: keda
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://kedacore.github.io/charts'
+    targetRevision: 2.9.4
+    chart: keda
+    helm:
+      parameters:
+        - name: installCRDs
+          value: "true"
+      values: |
+          operator:
+            name: keda-operator
+            replicaCount: 1
+          podLabels:
+            keda:
+              bu: test
+              arrr: yep
+            metricsAdapter:
+              bu: test
+              arrr: yep
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
