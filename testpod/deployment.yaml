@@ -4,7 +4,6 @@ metadata:
   name: testpod-deployment
   namespace: testpod
 spec:
-  replicas: 1
   selector:
     matchLabels:
       run: testpod
