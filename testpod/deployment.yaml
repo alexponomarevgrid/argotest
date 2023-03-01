@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testpod-deployment
+  namespace: testpod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: testpod
+  template:
+    metadata:
+      labels:
+        run: testpod
+    spec:
+      containers:
+      - name: testpod
+        image: pz/demo
+        name: testpod
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 8088
