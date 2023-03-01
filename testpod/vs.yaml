@@ -13,7 +13,7 @@ spec:
      - uri:
         prefix: "/ok"
     rewrite:
-      uri: "/"
+      uri: "/ok"
     route:
     - destination:
         port:
