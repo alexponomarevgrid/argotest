@@ -14,7 +14,7 @@ spec:
     metadata:
       timezone: Europe/Sofia
       start: 00 00 * * MON-FRI
-      end: 23 59 * * MON-FRI
+      end: 59 23 * * MON-FRI
       desiredReplicas: "2"
   - type: cpu
     metadata:
