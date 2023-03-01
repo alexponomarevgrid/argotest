@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: testpod
+  namespace: argocd
+spec:
+  destination:
+    namespace: testpod
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: testpod
+    repoURL: git@github.com:alexponomarevgrid/argotest.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
