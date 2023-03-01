@@ -1,0 +1,17 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: all-application
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: argocd
+    repoURL: git@github.com:alexponomarevgrid/argotest.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
