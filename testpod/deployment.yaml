@@ -15,6 +15,9 @@ spec:
       containers:
       - name: testpod
         image: pz/demo:v0.1
+        resources:
+          limits:
+            cpu: "500m"
         imagePullPolicy: Never
         ports:
         - containerPort: 8088
