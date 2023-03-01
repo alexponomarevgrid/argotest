@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metric-server
+  namespace: argocd
+spec:
+  destination:
+    namespace: metric-server
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: metrics-server
+    # helm:
+    #   parameters:
+    #     - name: installCRDs
+    #       value: "true"
+    repoURL: https://kubernetes-sigs.github.io/metrics-server/
+    targetRevision: 3.8.3
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
