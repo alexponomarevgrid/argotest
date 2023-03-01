@@ -13,8 +13,8 @@ spec:
   - type: cron
     metadata:
       timezone: Europe/Sofia
-      start: 00 00 * * MON-FRI
-      end: 59 23 * * MON-FRI
+      start: 00 00 * * 1-5
+      end: 59 23 * * 1-5
       desiredReplicas: "2"
   - type: cpu
     metadata:

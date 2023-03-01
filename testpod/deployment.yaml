@@ -17,4 +17,4 @@ spec:
         image: pz/demo:v0.1
         imagePullPolicy: Never
         ports:
-          - containerPort: 8088
+        - containerPort: 8088
