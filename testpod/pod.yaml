@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: testpod
+  name: testpod
+  namespace: testpod
+spec:
+  containers:
+  - image: pz/demo
+    name: testpod
+    imagePullPolicy: Never
+    ports:
+      - containerPort: 8088
+
+

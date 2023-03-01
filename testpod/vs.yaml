@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: test-vs
+  namespace: default
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - istio-system/http-internal-gateway
+  http:
+  - match:
+     - uri:
+        prefix: "/ok"
+    rewrite:
+      uri: "/"
+    route:
+    - destination:
+        port:
+          number: 8088
+        host: ok-svc
