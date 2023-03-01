@@ -12,5 +12,3 @@ spec:
     imagePullPolicy: Never
     ports:
       - containerPort: 8088
-
-

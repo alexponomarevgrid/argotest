@@ -16,7 +16,6 @@ spec:
       containers:
       - name: testpod
         image: pz/demo
-        name: testpod
         imagePullPolicy: Never
         ports:
           - containerPort: 8088
