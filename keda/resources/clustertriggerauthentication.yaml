@@ -3,7 +3,7 @@ kind: ClusterTriggerAuthentication
 metadata:
   name: dynotrace-keda-token
 spec:
-  secretTargetRef:                          # Optional.
-    - parameter: connectionString           # Required - Defined by the scale trigger
+  secretTargetRef:
+    - parameter: apiKey
       name: dynotrace-low-token
       key: token
