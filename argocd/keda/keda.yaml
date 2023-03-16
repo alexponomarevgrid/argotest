@@ -9,30 +9,33 @@ spec:
     namespace: keda
     server: https://kubernetes.default.svc
   project: default
-  source:
-    repoURL: 'https://kedacore.github.io/charts'
-    targetRevision: 2.9.4
-    chart: keda
-    helm:
-      parameters:
-        - name: installCRDs
-          value: "true"
-      values: |
-          operator:
-            name: keda-operator
-            replicaCount: 1
-          podLabels:
-            keda:
-              bus_unit: MCP
-              org: shared_services
-            metricsAdapter:
-              bus_unit: MCP
-              org: shared_services
-          tolerations:
-            - effect: NoSchedule
-              key: vmsize
-              operator: Equal
-              value: small01
+  sources:
+    - chart: keda
+      repoURL: 'https://kedacore.github.io/charts'
+      targetRevision: 2.9.4
+      helm:
+        parameters:
+          - name: installCRDs
+            value: "true"
+        values: |
+            operator:
+              name: keda-operator
+              replicaCount: 1
+            podLabels:
+              keda:
+                bus_unit: MCP
+                org: shared_services
+              metricsAdapter:
+                bus_unit: MCP
+                org: shared_services
+            tolerations:
+              - effect: NoSchedule
+                key: vmsize
+                operator: Equal
+                value: small01
+    - repoURL: git@github.com:alexponomarevgrid/argotest.git
+      path: keda
+      targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
