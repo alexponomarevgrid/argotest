@@ -17,14 +17,12 @@ spec:
       end: 59 23 * * 1-5
       desiredReplicas: "2"
   - type: cpu
+    metricType: Utilization
     metadata:
-      type: Utilization
       value: "80"
-
   - type: metrics-api
     metadata:
       targetValue: '100'
-      # TODO Replace <tenant-baseurl>
       url: 'https://dtz52610.live.dynatrace.com/api/v2/metrics/query?metricSelector=builtin:host.cpu.usage:splitBy("dt.entity.host"):avg:auto:sort(value(avg,descending)):limit(20)'
       valueLocation: 'result.0.data.0.values.0'
       authMode: apiKey
