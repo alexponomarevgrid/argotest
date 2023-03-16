@@ -28,6 +28,6 @@ spec:
       url: 'https://dtz52610.live.dynatrace.com/api/v2/metrics/query?metricSelector=builtin:service.requestCount.total:filter(and(in("dt.entity.service",entitySelector("type(service),entityName(~"greeting-service~")")))):splitBy():sum:timeshift(-3m):rollup(avg,3m):last'
       valueLocation: 'result.0.data.0.values.0'
       authMode: apiKey
-      keyParamName: Authorization
+      keyParamName: dynotrace-token
     authenticationRef:
       name: dynotrace-keda-token
