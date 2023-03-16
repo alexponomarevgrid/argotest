@@ -1,0 +1,9 @@
+apiVersion: keda.sh/v1alpha1
+kind: ClusterTriggerAuthentication
+metadata:
+  name: dynotrace-keda-token
+spec:
+  secretTargetRef:                          # Optional.
+    - parameter: connectionString           # Required - Defined by the scale trigger
+      name: dynotrace-low-token
+      key: dynotrace-token

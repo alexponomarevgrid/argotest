@@ -1,2 +1,3 @@
 resources:
-- ./secret.yaml
+- ./resources/secret.yaml
+- ./resources/clustertriggerauthentication.yaml
