@@ -25,7 +25,7 @@ spec:
     metadata:
       targetValue: '100'
       # TODO Replace <tenant-baseurl>
-      url: 'https://dtz52610.live.dynatrace.com/api/v2/metrics/query?metricSelector=builtin:service.requestCount.total:filter(and(in("dt.entity.service",entitySelector("type(service),entityName(~"greeting-service~")")))):splitBy():sum:timeshift(-3m):rollup(avg,3m):last'
+      url: 'https://dtz52610.live.dynatrace.com/api/v2/metrics/query?metricSelector=builtin:host.cpu.usage:splitBy("dt.entity.host"):avg:auto:sort(value(avg,descending)):limit(20)'
       valueLocation: 'result.0.data.0.values.0'
       authMode: apiKey
       keyParamName: Authorization
