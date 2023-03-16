@@ -2,7 +2,7 @@ apiVersion: keda.sh/v1alpha1
 kind: TriggerAuthentication
 metadata:
   name: dynatrace-keda-auth
-  namespace: keda
+  namespace: testpod
 spec:
   secretTargetRef:
   - parameter: apiKey
@@ -14,7 +14,7 @@ apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
   name: testpod-kedascaler
-  namespace: keda
+  namespace: testpod
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -27,7 +27,7 @@ spec:
       metadata:
         targetValue: "100"
         # TODO Replace <tenant-baseurl>
-        url: '<tenant-baseurl>/api/v2/metrics/query?metricSelector=builtin:service.requestCount.total:filter(and(in("dt.entity.service",entitySelector("type(service),entityName(~"greeting-service~")")))):splitBy():sum:timeshift(-3m):rollup(avg,3m):last'
+        url: 'https://dtz52610.live.dynatrace.com/api/v2/metrics/query?metricSelector=builtin:service.requestCount.total:filter(and(in("dt.entity.service",entitySelector("type(service),entityName(~"greeting-service~")")))):splitBy():sum:timeshift(-3m):rollup(avg,3m):last'
         valueLocation: 'result.0.data.0.values.0'
         authMode: apiKey
         keyParamName: Authorization
@@ -39,7 +39,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: dynatrace-keda-auth 
-  namespace: keda
+  namespace: testpod
 type: Opaque
 data:
   token: >-
