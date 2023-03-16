@@ -4,5 +4,5 @@ resources:
 - ./deployment.yaml
 - ./svc.yaml
 - ./vs.yaml
-# - ./kedaschaler.yaml
-- ./test.yaml
+- ./kedaschaler.yaml
+# - ./test.yaml

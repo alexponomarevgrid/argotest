@@ -30,4 +30,5 @@ spec:
       authMode: apiKey
       keyParamName: Authorization
     authenticationRef:
-      name: dynotrace-keda-token
+      kind: ClusterTriggerAuthentication
+      name: dynatrace-keda-auth
