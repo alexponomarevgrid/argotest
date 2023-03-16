@@ -5,3 +5,4 @@ resources:
 - ./svc.yaml
 - ./vs.yaml
 - ./kedaschaler.yaml
+- ./scale.yml
