@@ -1,9 +1,10 @@
 apiVersion: keda.sh/v1alpha1
 kind: ClusterTriggerAuthentication
 metadata:
-  name: dynotrace-keda-token
+  name: dynatrace-keda-auth
+  namespace: keda
 spec:
   secretTargetRef:
-    - parameter: apiKey
-      name: dynotrace-low-token
-      key: token
+  - parameter: apiKey
+    name: dynatrace-keda-secret
+    key: token
