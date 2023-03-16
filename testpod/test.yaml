@@ -1,13 +1,13 @@
-# apiVersion: keda.sh/v1alpha1
-# kind: TriggerAuthentication
-# metadata:
-#   name: dynatrace-keda-auth
-#   namespace: testpod
-# spec:
-#   secretTargetRef:
-#   - parameter: apiKey
-#     name: dynatrace-keda-secret
-#     key: token
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: dynatrace-keda-auth
+  namespace: testpod
+spec:
+  secretTargetRef:
+  - parameter: apiKey
+    name: dynatrace-keda-secret
+    key: token
 
 ---
 apiVersion: keda.sh/v1alpha1
@@ -34,13 +34,13 @@ spec:
       authenticationRef:
         name: dynatrace-keda-auth 
 
-# ---
-# apiVersion: v1
-# kind: Secret
-# metadata:
-#   name: dynatrace-keda-auth 
-#   namespace: testpod
-# type: Opaque
-# data:
-#   token: >-
-#     ZHQwYzAxLjZBS1o2UlMzVTRSS1VXMlVDV1ZBNjRBRy5CV1kyRzNKWEdXWFdSUVVBMkJZWVZUQVA2NEZDUENMV0tENVpKQjdSNFozVlQ1MkpEQkZVN0NIM1ZIQzJPRExWCg==
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dynatrace-keda-secret
+  namespace: testpod
+type: Opaque
+data:
+  token: >-
+    ZHQwYzAxLjZBS1o2UlMzVTRSS1VXMlVDV1ZBNjRBRy5CV1kyRzNKWEdXWFdSUVVBMkJZWVZUQVA2NEZDUENMV0tENVpKQjdSNFozVlQ1MkpEQkZVN0NIM1ZIQzJPRExWCg==
